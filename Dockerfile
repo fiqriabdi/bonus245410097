@@ -1,11 +1,6 @@
-# Gunakan image dasar Python
-FROM python:3.9-slim
+# Gunakan image dasar httpd versi 2.4
+FROM httpd:2.4
 
-# Setel direktori kerja di dalam container
-WORKDIR /app
+# Salin semua file/direktori ke dalam direktori htdocs Apache
+COPY . /usr/local/apache2/htdocs/
 
-# Salin seluruh aplikasi ke dalam container
-COPY . .
-
-# Tentukan perintah untuk menjalankan aplikasi
-CMD ["python", "app.py"]
